@@ -7,14 +7,14 @@
 }
 
 :root {
-  --bg-primary: #0f172a;
+  --bg-primary: #0c1220;
   --bg-card: #1e293b;
-  --bg-input: #334155;
+  --bg-input: #3f4f66;
   --text-primary: #f8fafc;
-  --text-secondary: #94a3b8;
-  --text-muted: #64748b;
+  --text-secondary: #e2e8f0;
+  --text-muted: #cbd5e1;
   --accent: #22d3ee;
-  --accent-glow: rgba(34, 211, 238, 0.2);
+  --accent-glow: rgba(34, 211, 238, 0.3);
   --success: #4ade80;
   --error: #f87171;
   --border: #475569;
@@ -83,11 +83,11 @@ body {
 }
 
 .input-group label {
-  font-size: 0.65rem;
+  font-size: 0.7rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--text-muted);
+  color: var(--text-secondary);
 }
 
 .input-wrapper {
@@ -106,7 +106,7 @@ body {
 
 .input-prefix,
 .input-suffix {
-  color: var(--text-muted);
+  color: var(--text-secondary);
   font-size: 0.8rem;
   font-weight: 500;
   padding: 0 8px;
@@ -137,6 +137,7 @@ body {
 .input-wrapper input::placeholder {
   color: var(--text-muted);
   font-weight: 400;
+  opacity: 0.7;
 }
 
 .input-wrapper input::-webkit-outer-spin-button,
@@ -165,7 +166,7 @@ body {
 }
 
 .checkbox-row span {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   color: var(--text-secondary);
 }
 
@@ -199,7 +200,7 @@ body {
 
 .result-breakdown {
   margin-top: 8px;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   color: var(--text-muted);
   line-height: 1.5;
 }
