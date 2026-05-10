@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tip Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <h1>Earnings Calc</h1>
+    </header>
+
+    <form class="calculator" id="calculator">
+      <div class="input-row">
+        <div class="input-group">
+          <label for="tip">Tip</label>
+          <div class="input-wrapper">
+            <span class="input-prefix">$</span>
+            <input type="number" id="tip" name="tip" inputmode="decimal" step="0.01" min="0" placeholder="0.00">
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="wage">Wage</label>
+          <div class="input-wrapper">
+            <span class="input-prefix">$</span>
+            <input type="number" id="wage" name="wage" inputmode="decimal" step="0.01" min="0" placeholder="0.00">
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="distance">Distance</label>
+          <div class="input-wrapper">
+            <input type="number" id="distance" name="distance" inputmode="decimal" step="0.1" min="0" placeholder="0.0">
+            <span class="input-suffix">mi</span>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="mpg">MPG</label>
+          <div class="input-wrapper">
+            <input type="number" id="mpg" name="mpg" inputmode="decimal" step="0.1" min="0" placeholder="0.0">
+            <span class="input-suffix">mpg</span>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="gasPrice">Gas</label>
+          <div class="input-wrapper">
+            <span class="input-prefix">$</span>
+            <input type="number" id="gasPrice" name="gasPrice" inputmode="decimal" step="0.01" min="0" placeholder="0.00">
+            <span class="input-suffix">/gal</span>
+          </div>
+        </div>
+      </div>
+
+      <label class="checkbox-row">
+        <input type="checkbox" id="roundTrip" checked>
+        <span>Round trip (2x distance)</span>
+      </label>
+
+      <div class="result-section">
+        <div class="result-value" id="result">$0.00</div>
+        <div class="result-breakdown" id="breakdown"></div>
+      </div>
+
+      <button type="button" class="btn-clear" id="clearBtn">Clear</button>
+    </form>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
