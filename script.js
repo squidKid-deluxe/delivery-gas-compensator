@@ -1,8 +1,7 @@
 const Calculator = {
   elements: {
     form: document.getElementById('calculator'),
-    tip: document.getElementById('tip'),
-    wage: document.getElementById('wage'),
+    amount: document.getElementById('amount'),
     distance: document.getElementById('distance'),
     mpg: document.getElementById('mpg'),
     gasPrice: document.getElementById('gasPrice'),
@@ -17,8 +16,7 @@ const Calculator = {
 
   init() {
     this.inputs = [
-      this.elements.tip,
-      this.elements.wage,
+      this.elements.amount,
       this.elements.distance,
       this.elements.mpg,
       this.elements.gasPrice,
@@ -82,8 +80,7 @@ const Calculator = {
     const getNum = (el) => parseFloat(el.value) || 0;
 
     return {
-      tip: getNum(this.elements.tip),
-      wage: getNum(this.elements.wage),
+      amount: getNum(this.elements.amount),
       distance: getNum(this.elements.distance),
       mpg: getNum(this.elements.mpg),
       gasPrice: getNum(this.elements.gasPrice),
@@ -92,16 +89,15 @@ const Calculator = {
   },
 
   calculate() {
-    const { tip, wage, distance, mpg, gasPrice, roundTrip } = this.getValues();
+    const { amount, distance, mpg, gasPrice, roundTrip } = this.getValues();
     const effectiveDistance = roundTrip ? distance * 2 : distance;
-    const earnings = tip + wage;
     const gasCost = mpg > 0 ? (gasPrice / mpg) * effectiveDistance : 0;
-    const net = earnings - gasCost;
+    const net = amount - gasCost;
 
-    this.updateDisplay(net, earnings, gasCost);
+    this.updateDisplay(net, amount, gasCost);
   },
 
-  updateDisplay(net, earnings, gasCost) {
+  updateDisplay(net, amount, gasCost) {
     const resultEl = this.elements.result;
     const breakdownEl = this.elements.breakdown;
 
@@ -116,9 +112,9 @@ const Calculator = {
       resultEl.classList.add('neutral');
     }
 
-    if (earnings > 0 || gasCost > 0) {
+    if (amount > 0 || gasCost > 0) {
       breakdownEl.innerHTML = `
-        <div>Tip + Wage: ${this.formatCurrency(earnings)}</div>
+        <div>Amount Paid: ${this.formatCurrency(amount)}</div>
         <div>Gas Cost: ${this.formatCurrency(gasCost)}</div>
       `;
     } else {
@@ -136,7 +132,7 @@ const Calculator = {
   },
 
   clear() {
-    const clearableInputs = ['tip', 'wage', 'distance'];
+    const clearableInputs = ['amount', 'distance'];
     clearableInputs.forEach(name => {
       this.elements[name].value = '';
     });
@@ -144,7 +140,7 @@ const Calculator = {
     this.elements.result.classList.remove('positive', 'negative');
     this.elements.result.classList.add('neutral');
     this.elements.breakdown.innerHTML = '';
-    this.elements.tip.focus();
+    this.elements.amount.focus();
   },
 };
 
