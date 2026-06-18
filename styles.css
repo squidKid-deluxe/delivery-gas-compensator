@@ -262,6 +262,21 @@ body {
   transform: scale(0.98);
 }
 
+.btn-update {
+  margin-top: auto;
+  background: none;
+  border: none;
+  padding: 12px;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn-update:hover {
+  color: var(--text-secondary);
+}
+
 @media (min-width: 400px) {
   .calculator {
     max-width: 440px;

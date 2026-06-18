@@ -191,6 +191,11 @@ const AgeCalc = {
   },
 };
 
+function forceRefresh() {
+  fetch(window.location.href, { cache: "no-cache" })
+    .then(() => window.location.reload(true));
+}
+
 Calculator.init();
 Tabs.init();
 AgeCalc.init();
