@@ -144,4 +144,53 @@ const Calculator = {
   },
 };
 
+const Tabs = {
+  init() {
+    this.tabs = document.querySelectorAll('.tab');
+    this.panels = {};
+    document.querySelectorAll('.tab-content').forEach(p => this.panels[p.dataset.tab] = p);
+
+    this.tabs.forEach(tab => {
+      tab.addEventListener('click', () => this.switchTo(tab.dataset.tab));
+    });
+
+    this.switchTo(document.querySelector('.tab.active').dataset.tab);
+  },
+
+  switchTo(tabId) {
+    this.tabs.forEach(t => t.classList.toggle('active', t.dataset.tab === tabId));
+    Object.values(this.panels).forEach(p => p.classList.toggle('hidden', p.dataset.tab !== tabId));
+  },
+};
+
+const AgeCalc = {
+  init() {
+    this.input = document.getElementById('ageInput');
+    this.result = document.getElementById('ageResult');
+
+    this.input.addEventListener('input', () => this.calculate());
+    this.input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') e.preventDefault();
+    });
+
+    this.calculate();
+    setInterval(() => this.calculate(), 60_000);
+  },
+
+  calculate() {
+    const age = parseInt(this.input.value, 10);
+    if (isNaN(age) || age < 0) {
+      this.result.textContent = '—';
+      return;
+    }
+    const today = new Date();
+    const birthDate = new Date(today.getFullYear() - age, today.getMonth(), today.getDate());
+    this.result.textContent = birthDate.toLocaleDateString('en-US', {
+      year: 'numeric', month: 'long', day: 'numeric',
+    });
+  },
+};
+
 Calculator.init();
+Tabs.init();
+AgeCalc.init();
