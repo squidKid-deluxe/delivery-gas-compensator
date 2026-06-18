@@ -159,7 +159,7 @@ const Tabs = {
 
   switchTo(tabId) {
     this.tabs.forEach(t => t.classList.toggle('active', t.dataset.tab === tabId));
-    Object.values(this.panels).forEach(p => p.classList.toggle('hidden', p.dataset.tab !== tabId));
+    Object.values(this.panels).forEach(p => p.hidden = p.dataset.tab !== tabId);
   },
 };
 
